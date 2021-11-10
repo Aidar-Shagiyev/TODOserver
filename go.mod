@@ -1,4 +1,4 @@
-module github.com/Aidar-Shagiyev/todoserver
+module github.com/Aidar-Shagiyev/TODOserver
 
 go 1.17
 
