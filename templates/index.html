@@ -1,0 +1,30 @@
+<html>
+	<title>TODOs</title>
+	<style>
+		li {
+			font-size: 170%
+		}
+	</style>
+
+	<h1>Your personal TODO manager!</h1>
+	<form action="/delete" method="POST">
+		<ul>
+			<li><b>Deadline (YYYY-MM-DD): Action</b></li>
+			{{ range .todolist }}
+			<li>
+				<input type="checkbox" name="deletelist[]" value={{ .ID }} id={{ .ID }}>
+				<label for={{ .ID }}>{{ .Deadline }}: {{ .Action }}</label>
+			</li>
+			{{ end }}
+		</ul>
+		<input type="submit" value="Delete selected">
+	</form>
+	<h2><b>Add new TODOs:</b></h2>
+	<form action="/add" method="POST">
+		<label for="deadline">Deadline (YYYY-MM-DD):</label><br>
+		<input type="text" id="deadline" name="deadline"><br>
+		<label for="action">Action:</label><br>
+		<input type="text" id="action" name="action"><br>
+		<input type="submit" value="Add action">
+	</form>
+</html>
